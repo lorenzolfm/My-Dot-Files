@@ -6,21 +6,15 @@ Plug 'terryma/vim-multiple-cursors'
 "Make nVim plyglot
 Plug 'sheerun/vim-polyglot'
 "Auto complete
-"Plug 'roxma/nvim-completion-manager'
-Plug 'Shougo/neco-syntax'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-syntax'
-Plug 'ncm2/ncm2-cssomni'
-Plug 'ncm2/ncm2-tern'
-Plug 'mhartington/nvim-typescript'
-Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-pyclang'
-Plug 'ncm2/ncm2-vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 "Check syntax assynchronously and fix files
 Plug 'w0rp/ale'
 "Make pair of brackets by default
@@ -31,7 +25,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 "Commenting
 Plug 'scrooloose/nerdcommenter'
-"Emmet for html
 "Edit HTML fast
 Plug 'mattn/emmet-vim'
 call plug#end()
