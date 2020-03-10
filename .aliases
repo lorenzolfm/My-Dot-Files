@@ -1,5 +1,6 @@
 alias v="nvim"
 alias c="clear"
+alias f="nautilus ." 
 
 # Config alias for dotfiles bare repo
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
