@@ -7,14 +7,14 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
 "Auto complete
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+" if has('nvim')
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+  " Plug 'Shougo/deoplete.nvim'
+  " Plug 'roxma/nvim-yarp'
+  " Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" let g:deoplete#enable_at_startup = 1
 "Check syntax assynchronously and fix files
 Plug 'w0rp/ale'
 "Make pair of brackets by default
