@@ -1,7 +1,7 @@
 alias v="nvim"
 alias c="clear"
 alias f="nautilus ." 
-alais t="tmux"
+alias t="tmux"
 
 # Config alias for dotfiles bare repo
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
