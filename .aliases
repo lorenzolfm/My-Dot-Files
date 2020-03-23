@@ -2,6 +2,8 @@ alias v="nvim"
 alias c="clear"
 alias f="nautilus ." 
 alias t="tmux"
+alias s="source myvenv/bin/activate"
+alias d="deactivate"
 
 # Config alias for dotfiles bare repo
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
