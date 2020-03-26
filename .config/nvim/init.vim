@@ -48,6 +48,7 @@ let mapleader="\<space>"
 
 " Append ; shortcut
 nnoremap <leader>; A;<esc>
+" NERDTreeToogle shortcut
 nnoremap <leader>q :NERDTreeToggle<CR>
 
 "Navigate through complete menu with TAB
@@ -58,6 +59,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:user_emmet_leader_key='<c-d>'
 "Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
+
+let g:ycm_autoclose_preview_window_after_completion = 0
 
 "Remove delay between modes
 set ttimeout ttimeoutlen=0
