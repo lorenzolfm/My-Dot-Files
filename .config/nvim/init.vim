@@ -46,8 +46,17 @@ syntax on
 " Defines spacekey as mapleader
 let mapleader="\<space>"
 
-" Append ; shortcut
-nnoremap <leader>; A;<esc>
+
+" Split windows shortcuts
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Open new split panes to right and bottom
+set splitbelow
+set splitright
+
 " NERDTreeToogle shortcut
 nnoremap <leader>q :NERDTreeToggle<CR>
 
