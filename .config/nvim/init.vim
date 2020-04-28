@@ -73,3 +73,8 @@ let g:ycm_autoclose_preview_window_after_completion = 0
 
 "Remove delay between modes
 set ttimeout ttimeoutlen=0
+
+"One tab = 2 spaces
+set tabstop=2
+
+set shiftwidth=2
