@@ -42,6 +42,12 @@ set inccommand=split
 colorscheme onedark
 set background=dark
 
+" Show current line number
+set number
+
+" Show relative line numbers
+set relativenumber             
+
 syntax on
 " Defines spacekey as mapleader
 let mapleader="\<space>"
