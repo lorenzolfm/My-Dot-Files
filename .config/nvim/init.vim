@@ -1,111 +1,151 @@
+"===General===========================
+
+set encoding=utf-8	 " The encoding displayed
+set fileencoding=utf-8	 " The encoding written to file
+syntax on		 " Enable syntax highlight
+set ttyfast		 " Faster redrawing
+set lazyredraw		 " Only redraw when necessary
+set cursorline		 " Find the current line quickly
+let mapleader="\<space>" " Use space as leader
+set nobackup		 " Disable all backupfiles
+set nowritebackup
+set noswapfile
+
 call plug#begin()
+"===Themes and layout plugins=========
+
+" Vim Airline Statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " One Dark Theme (Same as Atom)
 Plug 'joshdick/onedark.vim'
 
-" Multiple Cursors for editing
-Plug 'terryma/vim-multiple-cursors'
+" A fancy start screen
+Plug 'mhinz/vim-startify'
 
-" Make nVim polyglot
-Plug 'sheerun/vim-polyglot'
+"===Productivity======================
 
-" Auto complete
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
-" Check syntax assynchronously and fix files
-Plug 'w0rp/ale'
-
-" Make pair of brackets by default
-Plug 'jiangmiao/auto-pairs'
-
-" Statusline
-Plug 'vim-airline/vim-airline'
-
-" File System Explorer
-Plug 'scrooloose/nerdtree'
+" Git support
+Plug 'tpope/vim-fugitive'
 
 " Commenting
 Plug 'scrooloose/nerdcommenter'
 
+" Auto-pairs brackets
+Plug 'jiangmiao/auto-pairs'
+
+" Multiple-cursors (same as sublime text)
+Plug 'terryma/vim-multiple-cursors'
+
 " Edit HTML fast
 Plug 'mattn/emmet-vim'
 
-" A fancy start screen
-Plug 'mhinz/vim-startify'
+"===Fuctionality=======================
 
-" True snippet and additional text editing support
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" linting
+Plug 'w0rp/ale'
+
+" File System Explorer
+Plug 'preservim/nerdtree'
+
+" Nerdtree git-plugin
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
-" Allows switching between files without saving
-set hidden
+"===Plugin=configs=====================
 
-" Show number lines
-set number
+" NerdTree
 
-" Show relative line numbers
-set relativenumber             
+" NerdTreeToogle shortcut (space + q)
+nnoremap <leader>q :NERDTreeToggle<CR>
+" Close NerdTree after a file is opened
+let g:NERDTreeQuitOnOpen=1
+
+" Airline
+
+" Setting airline onedark theme
+let g:airline_theme='onedark'
+" Enabling airline to use powerline fonts
+let g:airline_powerline_fonts=1
+
+" Ale
+
+" Fix files on save
+let g:ale_fix_on_save=1
+" Lint after 1s after changes are made both on insert and normal mode
+let g:ale_lint_on_text_changed='always'
+let g:ale_lint_delay=1000
+" Use emojis for errors and warnings
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+" Fixer configurations
+let g:ale_fixers={
+\	'*': ['remove_trailing_lines', 'trim_whitespace'],
+\	'c': ['cmakeformat'],
+\}
+" Linter configurations
+let g:ale_linters={
+\	'c': ['gcc'],
+\	'cpp': ['g++'],
+\	'python': ['pycodestyle']
+\}
+
+"===Visual=configs=====================
+
+" 256 colors
+set t_Co=256
+
+" Theme
+colorscheme onedark
 
 " Display long lines as just one line
 set nowrap
 
-" Disabling auto-insertion of comment leader
-set formatoptions-=cro
+" Display relative line numbers
+set relativenumber
+set number
+
+" Toogle invisible characters
+set invlist
+set list
+set listchars=tab:¦\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 
 " Show changes when modifying text
 set inccommand=split
-
-" Disable all backup files
-set nobackup
-set nowritebackup
-set noswapfile
-
-" Setting colorscheme and background
-colorscheme onedark
-set background=dark
-
-syntax on
-
-" Defines spacekey as mapleader
-let mapleader="\<space>"
-
-
-" Split windows shortcuts
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " Open new split panes to right and bottom
 set splitbelow
 set splitright
 
-" NERDTreeToogle shortcut
-nnoremap <leader>q :NERDTreeToggle<CR>
+"===Keymappings========================
 
-" Navigate through complete menu with TAB
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Copy and paste to/from vIM and the clipboard
+nnoremap <C-y> +y
+vnoremap <C-y> +y
+nnoremap <C-p> +P
+vnoremap <C-p> +P
 
-" Emmet vim shortcut
-let g:user_emmet_leader_key='<c-d>'
+" Access system clipboard
+set clipboard=unnamed
 
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims=1
+"===Indentation=======================
 
-" Close ycm preview window after completion
-let g:ycm_autoclose_preview_window_after_completion=1 
+" Use space instead of tabs
+set expandtab
 
-" Lint on save
-let g:ale_lint_on_save=1
+" Use smarttab
+set smarttab
 
-" Remove delay between modes
-set ttimeout ttimeoutlen=0
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
 
-" One tab = 2 spaces
-set tabstop=2
-set shiftwidth=2
+" Auto indent
+set ai
 
-" Close preview window when completion is done (coc)
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" Smart indent
+set si
