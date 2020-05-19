@@ -1,18 +1,21 @@
-"===General===========================
+"===========================================================
+"===General=================================================
 
-set encoding=utf-8	 " The encoding displayed
-set fileencoding=utf-8	 " The encoding written to file
-syntax on		 " Enable syntax highlight
-set ttyfast		 " Faster redrawing
-set lazyredraw		 " Only redraw when necessary
-set cursorline		 " Find the current line quickly
-let mapleader="\<space>" " Use space as leader
-set nobackup		 " Disable all backupfiles
+set encoding=utf-8          " The encoding displayed
+set fileencoding=utf-8      " The encoding written to file
+syntax on                   " Enable syntax highlight
+set ttyfast                 " Faster redrawing
+set lazyredraw              " Only redraw when necessary
+set cursorline              " Find the current line quickly
+let mapleader="\<space>"    " Use space as leader
+set updatetime=300          " Set update time to 300ms
+set nobackup                " Disable all backupfiles
 set nowritebackup
 set noswapfile
 
+"====Plugins=================================================
 call plug#begin()
-"===Themes and layout plugins=========
+"===Themes=and=layout========================================
 
 " Vim Airline Statusline
 Plug 'vim-airline/vim-airline'
@@ -24,7 +27,7 @@ Plug 'joshdick/onedark.vim'
 " A fancy start screen
 Plug 'mhinz/vim-startify'
 
-"===Productivity======================
+"===Productivity==============================================
 
 " Git support
 Plug 'tpope/vim-fugitive'
@@ -33,6 +36,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 
 " Auto-pairs brackets
+" Can be replaced by coc autopairs
 Plug 'jiangmiao/auto-pairs'
 
 " Multiple-cursors (same as sublime text)
@@ -41,7 +45,10 @@ Plug 'terryma/vim-multiple-cursors'
 " Edit HTML fast
 Plug 'mattn/emmet-vim'
 
-"===Fuctionality=======================
+"===Fuctionality==============================================
+
+" Add language support
+Plug 'sheerun/vim-polyglot'
 
 " linting
 Plug 'w0rp/ale'
@@ -52,11 +59,15 @@ Plug 'preservim/nerdtree'
 " Nerdtree git-plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Git show diffs
 Plug 'airblade/vim-gitgutter'
+
+" Coc is an intellisense engine for Vim/Neovim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
-"===Plugin=configs=====================
+"===Plugin=configs============================================
 
 " NerdTree
 
@@ -84,17 +95,24 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 " Fixer configurations
 let g:ale_fixers={
-\	'*': ['remove_trailing_lines', 'trim_whitespace'],
-\	'c': ['cmakeformat'],
+\	'*': ['remove_trailing_lines', 'trim_whitespace']
 \}
 " Linter configurations
 let g:ale_linters={
 \	'c': ['gcc'],
-\	'cpp': ['g++'],
-\	'python': ['pycodestyle']
+\	'cpp': ['cpplint'],
+\	'python': ['black']
 \}
 
-"===Visual=configs=====================
+" COC
+
+" TextEdit might fail if hidden is not set
+set hidden
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+"===Visual=configs===========================================
 
 " 256 colors
 set t_Co=256
@@ -121,18 +139,37 @@ set inccommand=split
 set splitbelow
 set splitright
 
-"===Keymappings========================
+" Keep cursor centered vertically, if possible (toogle with <leader>zz)
+set scrolloff=999
+if !exists('*VCenterCursor')
+  augroup VCenterCursor
+  au!
+  au OptionSet *,*.*
+    \ if and( expand("<amatch>")=='scrolloff' ,
+    \         exists('#VCenterCursor#WinEnter,WinNew,VimResized') )|
+    \   au! VCenterCursor WinEnter,WinNew,VimResized|
+    \ endif
+  augroup END
+  function VCenterCursor()
+    if !exists('#VCenterCursor#WinEnter,WinNew,VimResized')
+      let s:default_scrolloff=&scrolloff
+      let &scrolloff=winheight(win_getid())/2
+      au VCenterCursor WinEnter,WinNew,VimResized *,*.*
+        \ let &scrolloff=winheight(win_getid())/2
+    else
+      au! VCenterCursor WinEnter,WinNew,VimResized
+      let &scrolloff=s:default_scrolloff
+    endif
+  endfunction
+endif
 
-" Copy and paste to/from vIM and the clipboard
-nnoremap <C-y> +y
-vnoremap <C-y> +y
-nnoremap <C-p> +P
-vnoremap <C-p> +P
+nnoremap <leader>zz :call VCenterCursor()<CR>
+"===Keymappings==============================================
 
 " Access system clipboard
 set clipboard=unnamed
 
-"===Indentation=======================
+"===Indentation==============================================
 
 " Use space instead of tabs
 set expandtab
@@ -149,3 +186,8 @@ set ai
 
 " Smart indent
 set si
+
+"===Misc=====================================================
+
+" Disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
