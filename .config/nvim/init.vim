@@ -63,7 +63,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 
 " Coc is an intellisense engine for Vim/Neovim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -111,6 +111,8 @@ set hidden
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+
+
 
 "===Visual=configs===========================================
 
