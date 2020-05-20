@@ -166,7 +166,7 @@ if !exists('*VCenterCursor')
 endif
 
 nnoremap <leader>zz :call VCenterCursor()<CR>
-"===Keymappings==============================================
+"===Keymappings=============================================
 
 " Access system clipboard
 set clipboard=unnamed
@@ -192,4 +192,4 @@ set si
 "===Misc=====================================================
 
 " Disable automatic comment insertion
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o=
