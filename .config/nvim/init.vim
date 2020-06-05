@@ -63,7 +63,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 
 " Coc is an intellisense engine for Vim/Neovim
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -112,7 +115,23 @@ set hidden
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
+" Use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+let g:coc_global_extensions = [
+\ 'coc-clangd'
+\ ]
+
+" Use command :Shs to switch between source and header files
+command! -nargs=0 Shs    :CocCommand clangd.switchSourceHeader
 
 "===Visual=configs===========================================
 
