@@ -45,6 +45,10 @@ Plug 'terryma/vim-multiple-cursors'
 " Edit HTML fast
 Plug 'mattn/emmet-vim'
 
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 "===Fuctionality==============================================
 
 " Add language support
@@ -107,6 +111,9 @@ let g:ale_linters={
 \	'python': ['black']
 \}
 
+" Remaping  ctrl+p to fuzzyfinder
+nnoremap <C-P> :Files<CR>
+
 " COC
 
 " TextEdit might fail if hidden is not set
@@ -127,8 +134,16 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 
 let g:coc_global_extensions = [
-\ 'coc-clangd'
+\ 'coc-clangd',
+\ 'coc-highlight'
 \ ]
+
+" Use <Tab> and <S-Tab> to navigate the completion list:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Enable color highlight
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use command :Shs to switch between source and header files
 command! -nargs=0 Shs    :CocCommand clangd.switchSourceHeader
