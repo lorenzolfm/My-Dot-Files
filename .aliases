@@ -8,6 +8,10 @@ alias gotop="gotop-brlin"
 
 # Git aliases
 
+
+alias ga="git add"
+alias Gs="git status"
+alias gp = "git push"
 alias gss="git status --short"
 
 # Config alias for dotfiles bare repo
