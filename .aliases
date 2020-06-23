@@ -1,10 +1,18 @@
 alias v="$HOME/./nvim.appimage"
 alias c="clear"
-alias f="nautilus ." 
+alias f="nautilus ."
 alias t="tmux"
 alias s="source myvenv/bin/activate"
 alias d="deactivate"
+alias gotop="gotop-brlin"
+
+# Git aliases
+
+
+alias ga="git add"
+alias Gs="git status"
+alias gp = "git push"
+alias gss="git status --short"
 
 # Config alias for dotfiles bare repo
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
