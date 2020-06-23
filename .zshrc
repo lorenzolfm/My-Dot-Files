@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/lorenzo/.oh-my-zsh"
 
-# Got the theme and some other cool configs from this great article by @thewizardlucas 
+# Got the theme and some other cool configs from this great article by @thewizardlucas
 # https://lucasfcosta.com/2019/02/10/terminal-guide-2019.html
 ZSH_THEME="spaceship"
 
@@ -11,7 +11,6 @@ DISABLE_AUTO_TITLE=true
 
 plugins=(
 	z
-	git
 	tmux
 	safe-paste
 	colored-man-pages
@@ -27,3 +26,4 @@ if [ -f ~/.aliases ]; then
 fi
 
 # Use nvim as default editor
+export EDITOR=~/./nvim.appimage
