@@ -8,11 +8,48 @@ alias gotop="gotop-brlin"
 
 # Git aliases
 
+alias gi="git init"
 
+# Staging
 alias ga="git add"
+alias gua="git reset HEAD"
+
+# Commit
+alias Gc="git commit"
+alias gcm="git commit --message"
+alias gcd="git commit --verbose"
+alias gcfast="git commit -a"
+alias gca="git commit --amend"
+
+# Removing, moving and undoing
+alias grm="git rm"
+alias grmc="git rm --cached"
+alias gmv="git mv"
+alias gu="git checkout --"
+
+# Status
 alias Gs="git status"
-alias gp = "git push"
 alias gss="git status --short"
+
+# Logging
+alias gl="git log"
+alias gls="git log --stat"
+alias glp="git log --patch"
+alias glo="git log --pretty=oneline"
+alias glg="git log --pretty=format:"%h %s" --graph"
+alias glS="git log -S"
+
+# Git diff
+alias gd="git diff"
+alias gds="git diff --staged"
+
+# Remotes
+alias gr="git remote -v"
+alias grs="git remote show"
+alias grr="git remote rename"
+alias gc="git clone"
+alias gf="git fetch"
+alias gp="git push"
 
 # Config alias for dotfiles bare repo
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
