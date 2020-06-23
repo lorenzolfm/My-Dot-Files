@@ -27,3 +27,4 @@ fi
 
 # Use nvim as default editor
 export EDITOR=~/./nvim.appimage
+export VISUAL=~/./nvim.appimage
