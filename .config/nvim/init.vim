@@ -90,6 +90,11 @@ let g:airline_theme='onedark'
 " Enabling airline to use powerline fonts
 let g:airline_powerline_fonts=1
 
+" Emmet
+
+" Redefining trigger key
+let g:user_emmet_leader='<C-D>'
+
 " Ale
 
 " Fix files on save
