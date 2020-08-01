@@ -5,6 +5,7 @@ alias t="tmux"
 alias s="source myvenv/bin/activate"
 alias d="deactivate"
 alias gotop="gotop-brlin"
+alias djanGO="python manage.py runserver"
 
 # Git aliases
 
