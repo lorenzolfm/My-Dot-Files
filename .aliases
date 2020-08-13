@@ -13,20 +13,19 @@ alias gi="git init"
 
 # Staging
 alias ga="git add"
-alias gua="git reset HEAD" # Unstage file
+alias gua="git rm --cached" # Use this option to unstage and remove paths only from the index.
 
 # Commit
 alias Gc="git commit"
 alias gcm="git commit --message"
-alias gcd="git commit --verbose" #Show unified diff between the HEAD commit and what would be committed at the bottom of the commit message
-alias gcfast="git commit -a" #git add . + git commit
-alias gca="git commit --amend" #Replace the tip of the current branch by creating a new commit.
+alias gcd="git commit --verbose" # Show unified diff between the HEAD commit and what would be committed at the bottom of the commit message
+alias gcfast="git commit -a" # git add . + git commit
+alias gca="git commit --amend" # Replace the tip of the current branch by creating a new commit.
 
 # Removing, moving and undoing
-alias grm="git rm" #Remove files matching pathspec from the index, or from the working tree and the index
-alias grmc="git rm --cached" #Use this option to unstage and remove paths only from the index.
-alias gmv="git mv" #Move or rename a file, directory or symlink
-alias gu="git checkout --" #Discard changes in working directory
+alias grm="git rm" # Remove files matching pathspec from the index, or from the working tree and the index
+alias gmv="git mv" # Move or rename a file, directory or symlink
+alias gu="git checkout --" # Discard changes in working directory
 
 # Status
 alias Gs="git status"
@@ -57,10 +56,10 @@ alias gp="git push"
 # Branching
 alias gb="git branch"
 alias gcout="git checkout"
-alias gcb="git checkout -b" #Create and check branch
+alias gcb="git checkout -b" # Create and check branch
 alias gm="git merge"
 alias gdb="git branch -d"
-alias gbmerged="git branch --merged" #Filter the list of branches to branches that you have merged
+alias gbmerged="git branch --merged" # Filter the list of branches to branches that you have merged
 
 
 
