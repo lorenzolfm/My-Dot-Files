@@ -28,3 +28,5 @@ fi
 # Use nvim as default editor
 export EDITOR=~/./nvim.appimage
 export VISUAL=~/./nvim.appimage
+
+export CPPUTEST_HOME=/home/lorenzo/cpputest
