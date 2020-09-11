@@ -26,7 +26,7 @@ if [ -f ~/.aliases ]; then
 fi
 
 # Use nvim as default editor
-export EDITOR=~/./nvim.appimage
-export VISUAL=~/./nvim.appimage
+export EDITOR=nvim
+export VISUAL=nvim
 
 export CPPUTEST_HOME=/home/lorenzo/cpputest
