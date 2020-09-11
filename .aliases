@@ -1,4 +1,4 @@
-alias v="$HOME/./nvim.appimage"
+alias v="nvim"
 alias c="clear"
 alias f="nautilus ."
 alias t="tmux"
