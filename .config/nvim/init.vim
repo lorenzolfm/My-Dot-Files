@@ -1,13 +1,13 @@
 "===========================================================
 "===General=================================================
 
+let mapleader="\<space>"    " Use space as leader
 set encoding=utf-8          " The encoding displayed
 set fileencoding=utf-8      " The encoding written to file
 syntax on                   " Enable syntax highlight
 set ttyfast                 " Faster redrawing
 set lazyredraw              " Only redraw when necessary
 set cursorline              " Find the current line quickly
-let mapleader="\<space>"    " Use space as leader
 set updatetime=300          " Set update time to 300ms
 set nobackup                " Disable all backupfiles
 set nowritebackup
@@ -15,6 +15,7 @@ set noswapfile
 
 "====Plugins=================================================
 call plug#begin()
+"
 "===Themes=and=layout========================================
 
 " Vim Airline Statusline
@@ -27,6 +28,9 @@ Plug 'joshdick/onedark.vim'
 " A fancy start screen
 Plug 'mhinz/vim-startify'
 
+" Comprehensive syntax highlighting for C/C++
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
 "===Productivity==============================================
 
 " Git support
@@ -34,10 +38,6 @@ Plug 'tpope/vim-fugitive'
 
 " Commenting
 Plug 'scrooloose/nerdcommenter'
-
-" Auto-pairs brackets
-" Can be replaced by coc autopairs
-Plug 'jiangmiao/auto-pairs'
 
 " Multiple-cursors (same as sublime text)
 Plug 'terryma/vim-multiple-cursors'
@@ -71,6 +71,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" Format C/C++
+Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
@@ -121,6 +124,11 @@ nnoremap <C-P> :Files<CR>
 
 " COC
 
+" C++ syntax highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+
 " TextEdit might fail if hidden is not set
 set hidden
 
@@ -152,7 +160,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use command :Shs to switch between source and header files
 command! -nargs=0 Shs    :CocCommand clangd.switchSourceHeader
-
+nnoremap <Leader>f :<C-u>ClangFormat<CR>
 "===Visual=configs===========================================
 
 " 256 colors
