@@ -33,6 +33,9 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 "===Productivity==============================================
 
+" Auto pairs
+Plug 'jiangmiao/auto-pairs'
+
 " Git support
 Plug 'tpope/vim-fugitive'
 
