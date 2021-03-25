@@ -9,63 +9,59 @@ alias djanGO="python manage.py runserver"
 
 # Git aliases
 
-alias gi="git init"
+alias gi="git init"              # create an empty Git repository or reinitialize an existing one
 
 # Staging
-alias ga="git add"
-alias gua="git rm --cached" # Use this option to unstage and remove paths only from the index.
+alias ga="git add"               # stage file(s)
+alias gua="git restore --staged" # unstage file(s)
 
 # Commit
-alias Gc="git commit"
-alias gcm="git commit --message"
-alias gcd="git commit --verbose" # Show unified diff between the HEAD commit and what would be committed at the bottom of the commit message
-alias gcfast="git commit -a" # git add . + git commit
-alias gca="git commit --amend" # Replace the tip of the current branch by creating a new commit.
+alias Gc="git commit"            # open text editor for commit message & commit
+alias gcm="git commit --message" # commit message on command & commit
+alias gcd="git commit --verbose" # show unified diff between the HEAD commit and what would be committed at the bottom of the commit message
+alias gcfast="git commit -a"     # stages everything and commit
+alias gca="git commit --amend"   # replace the tip of the current branch by creating a new commit.
 
 # Removing, moving and undoing
-alias grm="git rm" # Remove files matching pathspec from the index, or from the working tree and the index
-alias gmv="git mv" # Move or rename a file, directory or symlink
-alias gu="git checkout --" # Discard changes in working directory
+alias gundo="git checkout --"    # discard changes in working directory
+alias grm="git rm"               # remove files matching pathspec from the index, or from the working tree and the index
+alias gmv="git mv"               # move or rename a file, directory or symlink
 
 # Status
-alias Gs="git status"
-alias gss="git status --short"
+alias Gs="git status"            # status long
+alias gss="git status --short"   # status short
 
 # Logging
-alias gl="git log"
-alias gls="git log --stat"
-alias glp="git log --patch"
-alias glo="git log --pretty=oneline"
-alias glG="git log --oneline --decorate --graph --all"
-alias glg="git log --pretty=format:"%h %s" --graph"
-alias glS="git log -S"
-alias glb="git branch -v" # Outputs last commit in each branch
+alias gl="git log"                                      # default log
+alias gls="git log --stat"                              # log with a diffstat
+alias glp="git log --patch"                             # log and generate patch
+alias glo="git log --pretty=oneline"                    # logs one commit per line
+alias glG="git log --oneline --decorate --graph --all"  # logs graph, one commit per line
+alias glS="git log -S"                                  # search regex and log
+alias glb="git branch -v"                               # logs last commit in each branch
 
 # Git diff
-alias gd="git diff"
-alias gds="git diff --staged"
+alias gdiff="git diff"             # diff between last commit and unstaged file
+alias gdiffs="git diff --staged"   # diff between staged file and last commit
 
 # Remotes
-alias gr="git remote -v"
-alias grs="git remote show"
-alias grr="git remote rename"
-alias gc="git clone"
-alias gf="git fetch"
-alias gp="git push"
+alias grlist="git remote -v"                # list remotes
+alias grd="git push origin --delete"    # delete remote branch
+alias grs="git remote show"             # information about the remote name
+alias grr="git remote rename"           # rename the remote
+alias gclone="git clone"                # git clone remote
+alias gfetch="git fetch"                # git fetch remote (does not merge)
+alias gpush="git push"                  # push to remote
+alias gpull="git pull"                  # pull (fetch and merge)
 
 # Branching
-alias gb="git branch"
-alias gcout="git checkout"
-alias gcb="git checkout -b" # Create and check branch
-alias gm="git merge"
-alias gdb="git branch -d"
-alias gbmerged="git branch --merged" # Filter the list of branches to branches that you have merged
-
-
-
-
-
-
+alias gb="git branch"                # list branches
+alias gbmerged="git branch --merged" # filter the list of branches to branches that you have merged
+alias gcout="git checkout"           # switch to branch
+alias gcb="git checkout -b"          # create and checkout branch
+alias gm="git merge"                 # merge branch
+alias gbdelete="git branch -d"       # delete branch
+alias gbdeleteFORCE="git branch -D"  # delete branch even if not merged
 
 # Config alias for dotfiles bare repo
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
