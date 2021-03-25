@@ -30,3 +30,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 export CPPUTEST_HOME=/home/lorenzo/cpputest
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/lorenzo/.sdkman"
+[[ -s "/home/lorenzo/.sdkman/bin/sdkman-init.sh" ]] && source "/home/lorenzo/.sdkman/bin/sdkman-init.sh"
