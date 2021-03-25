@@ -75,6 +75,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
+" LaTeX preview
+Plug 'xuhdev/vim-latex-live-preview'
+
 " Format C/C++
 Plug 'rhysd/vim-clang-format'
 
