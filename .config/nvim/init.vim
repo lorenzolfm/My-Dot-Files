@@ -48,6 +48,11 @@ Plug 'terryma/vim-multiple-cursors'
 " Edit HTML fast
 Plug 'mattn/emmet-vim'
 
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 "===Fuctionality==============================================
 
 " Add language support
@@ -120,9 +125,6 @@ let g:ale_linters={
 \	'cpp': ['cpplint'],
 \	'python': ['black']
 \}
-
-" Remaping  ctrl+p to fuzzyfinder
-nnoremap <C-P> :Files<CR>
 
 " COC
 
@@ -217,3 +219,15 @@ set si
 
 " Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o=
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
