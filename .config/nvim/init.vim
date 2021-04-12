@@ -48,10 +48,6 @@ Plug 'terryma/vim-multiple-cursors'
 " Edit HTML fast
 Plug 'mattn/emmet-vim'
 
-" Fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 "===Fuctionality==============================================
 
 " Add language support
