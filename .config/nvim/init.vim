@@ -2,13 +2,13 @@
 "===General=================================================
 
 
-set exrc		" Enable reading .vimrc/.exrc/.gvimrc in the current directory
+set exrc		    " Enable reading .vimrc/.exrc/.gvimrc in the current directory
 set relativenumber	" Show the relative line number for each line
-set nu			" Show the current line actual number
+set nu			    " Show the current line actual number
 set nohlsearch		" Don't highlight all matches for the last used search pattern
-set hidden		" Allows to move away from a buffer without saving
+set hidden		    " Allows to move away from a buffer without saving
 set noerrorbells	" Turn of annoying error noises
-set nowrap		" Do not wrap full line
+set nowrap		    " Do not wrap full line
 set tabstop=4		" Number of spaces a <Tab> in the text stands for
 set softtabstop=4	" Number of spaces to insert for a <Tab>
 set shiftwidth=4	" Number of spaces used for each step of (auto)indent
