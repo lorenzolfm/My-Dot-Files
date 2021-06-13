@@ -1,4 +1,4 @@
-let mapleader="<space>"     " Use spacebar as leader key
+let mapleader="\<space>"     " Use spacebar as leader key
 
 " Plugins:
 call plug#begin()
@@ -21,5 +21,6 @@ Plug 'airblade/vim-gitgutter'
 
 " Nerdtree FTW
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
