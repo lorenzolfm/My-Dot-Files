@@ -13,7 +13,13 @@ Plug 'vim-airline/vim-airline-themes'
 " A fancy start screen
 Plug 'mhinz/vim-startify'
 
-" Git support
+" Use git in command mode
 Plug 'tpope/vim-fugitive'
+
+" Shows git diff in signcolumn. Manipulate individual hunks
+Plug 'airblade/vim-gitgutter'
+
+" Nerdtree FTW
+Plug 'preservim/nerdtree'
 
 call plug#end()
