@@ -10,10 +10,17 @@ set softtabstop=4	" Number of spaces to insert for a <Tab>
 set shiftwidth=4	" Number of spaces used for each step of (auto)indent
 set expandtab		" Expand <Tab> to spaces in Insert mode
 set smartindent		" Do clever autoindenting
+set autoindent      " Automatically set the indent of a new line
 set incsearch		" Show match for partly types search command
 set scrolloff=8		" Number of screen lines to show around the cursor
 set signcolumn=yes	" Display the signcolumn
+set splitbelow      " In horizontal split, new panes goes to the bottom
+set splitright      " In vertical split, new panes goes to the right
+set invlist         " Display invisible characters
+set list
+set listchars=tab:¦\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set clipboard=unnamed   " Access system clipboard
+set inccommand=split    " Show changes when modifying text
 set encoding=utf-8      " Set encoding to UTF-8
 set fileencoding=utf-8  " Stores encoding of current buffer as UTF-8
 set lazyredraw          " Only redraw screen when necessary
@@ -22,3 +29,4 @@ set updatetime=300      " Set updatetime to 300ms
 set nobackup            " Disable file backup
 set nowritebackup
 set noswapfile
+
