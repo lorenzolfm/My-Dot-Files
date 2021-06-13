@@ -20,7 +20,8 @@ set signcolumn=yes	" Display the signcolumn
 set encoding=utf-8      " Set encoding to UTF-8
 set fileencoding=utf-8  " Stores encoding of current buffer as UTF-8
 set lazyredraw          " Only redraw screen when necessary
-set cursorline          " Highlights cursor line set updatetime=300      " Set updatetime to 300ms
+set cursorline          " Highlights cursor line
+set updatetime=300      " Set updatetime to 300ms
 set nobackup            " Disable file backup
 set nowritebackup
 set noswapfile
