@@ -28,7 +28,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Fast HTML
 Plug 'mattn/emmet-vim'
 
-" Neovim's built-in language server client.
-Plug 'neovim/nvim-lspconfig'
+" Making Neovim smart
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()

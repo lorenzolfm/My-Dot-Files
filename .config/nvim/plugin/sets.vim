@@ -30,3 +30,5 @@ set nobackup            " Disable file backup
 set nowritebackup
 set noswapfile
 
+" CoC Settings
+set shortmess+=c        " Don't pass messages to |ins-completion-menu|
