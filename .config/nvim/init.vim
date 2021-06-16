@@ -28,6 +28,15 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Fast HTML
 Plug 'mattn/emmet-vim'
 
+" Make nVim polyglot
+Plug 'sheerun/vim-polyglot'
+
+" Insert or delete brackets, parens, quotes in pair.
+Plug 'jiangmiao/auto-pairs'
+
+" Make commenting code easy
+Plug 'scrooloose/nerdcommenter'
+
 " Making Neovim smart
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
